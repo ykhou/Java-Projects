@@ -1,4 +1,4 @@
-# vue_book
+# vue-book
 
 ## Project setup
 ```
