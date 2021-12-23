@@ -39,8 +39,8 @@ class SpringbootBookApplicationTests {
         System.out.println(book1);
     }
 
-    @Test
-    void delete() {
-        bookRepository.deleteById(130);
-    }
+//    @Test
+//    void delete() {
+//        bookRepository.deleteById(130);
+//    }
 }
