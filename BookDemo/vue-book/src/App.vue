@@ -1,36 +1,48 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <div>
-      <p>
-        If Element is successfully added to this project, you'll see an
-        <code v-text="'<el-button>'"></code>
-        below
-      </p>
-      <el-button>el-button</el-button>
-    </div>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <el-container style="height: 98vh; border: 1vh solid #eee">
+
+      <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+        <el-menu router :default-openeds="['0', '1']">
+          <el-submenu v-for="(item,index) in $router.options.routes" :index="index+''" v-if="item.show">
+            <template slot="title">{{item.name}}</template>
+            <el-menu-item v-for="(item2,index2) in item.children" :index="item2.path"
+                          :class="$route.path==item2.path?'is-active':''">
+              {{item2.name}}
+            </el-menu-item>
+          </el-submenu>
+        </el-menu>
+      </el-aside>
+
+      <el-main>
+        <router-view></router-view>
+      </el-main>
+
+    </el-container>
   </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
-</script>
-
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.el-header {
+  background-color: #B3C0D1;
+  color: #333;
+  line-height: 60px;
+}
+
+.el-aside {
+  color: #333;
 }
 </style>
+
+<script>
+export default {
+  data() {
+    const item = {
+
+    };
+    return {
+      tableData: Array(20).fill(item)
+    }
+  }
+};
+</script>
