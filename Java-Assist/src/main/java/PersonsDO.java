@@ -44,5 +44,3 @@ public class PersonsDO {
         this.city = city;
     }
 }
-//04-Nov-2021 22:30:40.981 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\Environment\apache-tomcat-8.5.72\webapps\manager]
-//        04-Nov-2021 22:30:41.026 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[D:\Environment\apache-tomcat-8.5.72\webapps\manager]的部署已在[45]毫秒内完成
