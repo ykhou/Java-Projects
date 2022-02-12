@@ -18,7 +18,7 @@
 
     <el-form-item>
       <el-button type="primary" @click="submitForm('ruleForm')">
-        Create</el-button>
+        Submit</el-button>
       <el-button @click="resetForm('ruleForm')">
         Reset</el-button>
 
@@ -59,7 +59,7 @@ export default {
       const _this = this
       this.$refs[formName].validate(valid => {
         if (valid) {
-          axios.post('http://localhost:8181/book/save', this.ruleForm).then(function (resp) {
+          axios.post('http://localhost:8081/book/save', this.ruleForm).then(function (resp) {
             if (resp.data = 'success') {
               _this.$alert('《'+_this.ruleForm.name+'》修改成功','消息', {
                 confirmButtonText: '确定',
@@ -80,7 +80,7 @@ export default {
   },
   created() {
     const _this = this
-    axios.get('http://localhost:8181/book/findById/'+this.$route.query.id).then(function (resp) {
+    axios.get('http://localhost:8081/book/findById/'+this.$route.query.id).then(function (resp) {
       _this.ruleForm = resp.data
     })
   }

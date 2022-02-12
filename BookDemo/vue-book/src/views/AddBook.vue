@@ -56,7 +56,7 @@ export default {
       const _this = this
       this.$refs[formName].validate(valid => {
         if (valid) {
-          axios.post('http://localhost:8181/book/save', this.ruleForm).then(function (resp) {
+          axios.post('http://localhost:8081/book/save', this.ruleForm).then(function (resp) {
             if (resp.data = 'success') {
               _this.$alert('《'+_this.ruleForm.name+'》添加成功','消息', {
                 confirmButtonText: '确定',

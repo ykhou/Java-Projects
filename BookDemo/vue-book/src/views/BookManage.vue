@@ -1,9 +1,10 @@
 <template>
   <div>
     <el-table :data="tableData" style="width: 100%">
-      <el-table-column prop="id" label="ID" width="180"></el-table-column>
-      <el-table-column prop="name" label="name" width="180"></el-table-column>
-      <el-table-column prop="author" label="author" width="180"></el-table-column>
+      <el-table-column prop="id" label="ID" width="60"></el-table-column>
+      <el-table-column prop="name" label="name" width="150"></el-table-column>
+      <el-table-column prop="author" label="author" width="150"></el-table-column>
+      <el-table-column prop="price" label="price" width="60"></el-table-column>
 
       <el-table-column label="Operations">
         <template #default="scope">
@@ -33,7 +34,7 @@ export default {
   // 默认
   created() {
     const _this = this
-    axios.get('http://localhost:8181/book/findAll/1/6').then(function (resp) {
+    axios.get('http://localhost:8081/book/findAll/1/6').then(function (resp) {
       // console.log(resp)
       _this.tableData = resp.data.content
       _this.total = resp.data.totalElements
@@ -50,7 +51,7 @@ export default {
   methods: {
     page(currentPage) {
       const _this = this
-      axios.get('http://localhost:8181/book/findAll/'+currentPage+'/6').then(function (resp) {
+      axios.get('http://localhost:8081/book/findAll/'+currentPage+'/6').then(function (resp) {
         _this.tableData = resp.data.content
         _this.total = resp.data.totalElements
       })
@@ -65,7 +66,7 @@ export default {
     },
     handleDelete(row) {
       const _this = this
-      axios.delete('http://localhost:8181/book/delete/'+row.id).then(function (resp) {
+      axios.delete('http://localhost:8081/book/delete/'+row.id).then(function (resp) {
         if (resp.data = 'success') {
           _this.$alert('《'+row.name+'》删除成功','消息', {
             confirmButtonText: '确定',
